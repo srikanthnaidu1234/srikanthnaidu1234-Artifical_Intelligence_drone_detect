@@ -1,0 +1,3 @@
+import mydetector
+
+mydetector.hello()
