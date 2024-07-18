@@ -10,7 +10,7 @@ opencv-python = "^4.7.0"
 pytube = "^15.0.0"
 torch = "^2.0.0"
 torchvision = "^0.15.0"
-ultralytics = "^8.0.0"
+ultralytics = "^8.2.50"
 filterpy = "^1.4.5"
 
 [tool.poetry.dev-dependencies]

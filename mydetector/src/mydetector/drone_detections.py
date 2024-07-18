@@ -4,8 +4,9 @@ import os
 from pathlib import Path
 
 import cv2
-import torch
+from ultralytics import YOLO
 
+# ... (rest of the imports and logging setup)
 # Set up logging
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
@@ -65,7 +66,10 @@ def extract_frames(video_path: str, frames_dir: str) -> list[str]:
 
 
 def detect_drones(
-    frame_paths: list[str], model, detections_dir: str, detections_file: str
+    frame_paths: list[str],
+    model,  # noqa: ANN001
+    detections_dir: str,
+    detections_file: str,
 ) -> None:
     """Detect drones in the frames and save detections to a JSON file.
 
@@ -87,9 +91,9 @@ def detect_drones(
     for frame_path in frame_paths:
         frame = cv2.imread(frame_path)
         results = model(frame)
-        detections_df = results.pandas().xyxy[0]
 
-        if not detections_df.empty:
+        # Check if there are any detections
+        if results[0].boxes is not None and len(results[0].boxes) > 0:
             detection_path = os.path.join(detections_dir, os.path.basename(frame_path))  # noqa: PTH118, PTH119
             cv2.imwrite(detection_path, frame)
             logger.info(f"Detections found in frame: {frame_path}")  # noqa: G004
@@ -99,10 +103,9 @@ def detect_drones(
                 os.path.splitext(os.path.basename(frame_path))[0].split("_")[-1]  # noqa: PTH122, PTH119
             )
 
-            # Convert the detections DataFrame to a list of [x, y, width, height]
-            detections[frame_number] = detections_df[  # noqa: PD011
-                ["xmin", "ymin", "xmax", "ymax"]
-            ].values.tolist()
+            # Extract bounding boxes
+            boxes = results[0].boxes.xyxy.cpu().numpy().tolist()
+            detections[frame_number] = boxes
 
     # Save detections to a JSON file
     with open(detections_file, "w") as f:  # noqa: PTH123
@@ -130,9 +133,7 @@ def main() -> None:
     os.makedirs(videos_dir, exist_ok=True)  # noqa: PTH103
 
     # Load YOLO model
-    model = torch.hub.load(
-        "ultralytics/yolov5", "yolov5s"
-    )  # Replace with yolov7 or yolov8 if needed
+    model = YOLO("./best.pt")
 
     # Process each video
     for video_file in os.listdir(videos_dir):
