@@ -1,0 +1,16 @@
+2024-07-07 21:30:37,003 - INFO - Starting YouTube video downloader
+2024-07-07 21:30:54,405 - INFO - Saving video to: /Users/srikanthnaidu/Documents/NJIT_Course/artifical_intelligence_assignment_projects/AI_Assignment_3/python-project-template-main/mydetector/src/mydetector/downloads
+2024-07-07 21:30:57,867 - INFO - Successfully downloaded: Drone Tracking 1
+2024-07-07 21:30:57,867 - INFO - YouTube video downloader finished
+2024-07-07 21:31:03,316 - INFO - Starting YouTube video downloader
+2024-07-07 21:31:15,395 - INFO - Saving video to: /Users/srikanthnaidu/Documents/NJIT_Course/artifical_intelligence_assignment_projects/AI_Assignment_3/python-project-template-main/mydetector/src/mydetector/downloads
+2024-07-07 21:31:21,984 - INFO - Successfully downloaded: Drone tracking 2
+2024-07-07 21:31:21,985 - INFO - YouTube video downloader finished
+2024-07-07 21:41:44,489 - INFO - Starting YouTube video downloader
+2024-07-07 21:41:57,739 - INFO - Saving video to: /Users/srikanthnaidu/Documents/NJIT_Course/artifical_intelligence_assignment_projects/AI_Assignment_3/python-project-template-main/mydetector/src/mydetector/downloads/videos
+2024-07-07 21:42:01,027 - INFO - Successfully downloaded: Drone Tracking 1
+2024-07-07 21:42:01,028 - INFO - YouTube video downloader finished
+2024-07-07 21:43:00,321 - INFO - Starting YouTube video downloader
+2024-07-07 21:43:21,208 - INFO - Saving video to: /Users/srikanthnaidu/Documents/NJIT_Course/artifical_intelligence_assignment_projects/AI_Assignment_3/python-project-template-main/mydetector/src/mydetector/downloads/videos
+2024-07-07 21:43:25,744 - INFO - Successfully downloaded: Drone tracking 2
+2024-07-07 21:43:25,744 - INFO - YouTube video downloader finished
